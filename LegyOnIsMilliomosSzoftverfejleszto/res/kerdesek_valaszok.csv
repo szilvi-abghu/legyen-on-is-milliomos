@@ -1,0 +1,17 @@
+tipus;kerdes;helyes_valasz;rossz_valasz1;rossz_valasz2;rossz_valasz3
+szamrendszerek;Melyek a számítástechnikában leggyakrabban használatos számrendszerek?;bináris, decimális, hexadecimális, oktális;dinnye;alma;körte
+szamrendszerek;Hogy mondjuk a 16-os számrendszert más néven?;hexadecimális;dinnye;alma;körte
+szamrendszerek;Melyik számrendszert nevezzük binárisnak?;2-es számrendszer;dinnye;alma;körte
+szamrendszerek;Mennyi a 52 decimális szám 2-es számrendszerbeli alakja?;1 1 0 1 0 0(2);dinnye;alma;körte
+szamrendszerek;Mennyi a 42 decimális szám hexadecimális számrendszerbeli alakja?;2A(16);dinnye;alma;körte
+logikai;Mikor igaz az A ^ B 'és' logikai művelet?;akkor igaz, ha A és B is igaz;dinnye;alma;körte
+logikai;Mikor igaz az A v B 'vagy' logikai művelet?;akkor igaz, ha A vagy B vagy A és B igaz;dinnye;alma;körte
+logikai;Mikor igaz az ¬A  'tagadás' logikai művelet?;akkor igaz, amikor az A állítás nem igaz, és akkor nem igaz, amikor az A állítás igaz;dinnye;alma;körte
+logikai;Mikor igaz az A x B  'kizáró vagy' logikai művelet?;akkor igaz, ha vagy csak az A vagy csak a B igaz. Nem engedi meg, hogy a két állítás logikai értéke egyszerre igaz legyen;dinnye;alma;körte
+logikai;Melyik az a logikai művelet, ami akkor igaz, ha A és B is hamis?;tagadó vagy' logikai művelet  ;dinnye;alma;körte
+halozatok;Mi a hálózati topológia?;A számítógépek fizikai összekötésének rendszere;dinnye;alma;körte
+halozatok;Mi az IP cím?;internet protokol cím, 32 jegyű kettes számrendszerbeli azonosító szám;dinnye;alma;körte
+halozatok;Mi a host?;IP címmel rendelkező hálózati eszköz;dinnye;alma;körte
+halozatok;Mi a CIDR?;azonos méretű alhálózatokra bontás;dinnye;alma;körte
+halozatok;Hogy nevezzük a hálózati címtartomány első IP címét?;net cím;dinnye;alma;körte
+halozatok;Mi a broadcast cím más néven?;szórási cím;dinnye;alma;körte

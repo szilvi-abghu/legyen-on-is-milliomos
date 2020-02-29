@@ -1,0 +1,12 @@
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe.config
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.pdb
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.csprojAssemblyReference.cache
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe
+C:\Users\Szilvi\source\repos\LegyOnIsMilliomosSzoftverfejleszto\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.pdb
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe.config
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\bin\Debug\LegyOnIsMilliomosSzoftverfejleszto.pdb
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.csprojAssemblyReference.cache
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.exe
+c:\Users\Szilvi\wkspaces\legyen-on-is-milliomos\LegyOnIsMilliomosSzoftverfejleszto\obj\Debug\LegyOnIsMilliomosSzoftverfejleszto.pdb
