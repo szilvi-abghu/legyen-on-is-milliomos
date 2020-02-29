@@ -16,6 +16,12 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
         public string rosszValasz2;
         public string rosszValasz3;
     }
+
+    struct Valasz
+    {
+        public string valaszSzovege;
+        public bool helyesValasz;
+    }
     class Program
     {
         static Random rnd = new Random();
@@ -48,31 +54,74 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
         private static void FeladatMegjelenitese(int i)
         {
-            string[] valaszok = {teszt[i].helyesValasz, teszt[i].rosszValasz1, teszt[i].rosszValasz2, teszt[i].rosszValasz3 };
-            string[] kevertValaszok = TombKever(valaszok);
+           Valasz[] valaszok = new Valasz[4];
+            valaszok[0] = new Valasz()
+            {
+                valaszSzovege = teszt[i].helyesValasz,
+                helyesValasz = true,
+            };
+            valaszok[1] = new Valasz()
+            {
+                valaszSzovege = teszt[i].rosszValasz1,
+                helyesValasz = false,
+            };
+            valaszok[2] = new Valasz()
+            {
+                valaszSzovege = teszt[i].rosszValasz2,
+                helyesValasz = false,
+            };
+            valaszok[3] = new Valasz()
+            {
+                valaszSzovege = teszt[i].rosszValasz3,
+                helyesValasz = false,
+            };
+
+            Valasz[] kevertValaszok = TombKever(valaszok);
 
             Console.WriteLine($"{(i)}. kérdés: {teszt[i].kategoria} kategóriában\n");
             Console.WriteLine($"{teszt[i].kerdes}");
-            Console.WriteLine($"\ta) {kevertValaszok[0]}");
-            Console.WriteLine($"\tb) {kevertValaszok[1]}");
-            Console.WriteLine($"\tc) {kevertValaszok[2]}");
-            Console.WriteLine($"\td) {kevertValaszok[3]}");
+            Console.WriteLine($"\ta) {kevertValaszok[0].valaszSzovege}");
+            Console.WriteLine($"\tb) {kevertValaszok[1].valaszSzovege}");
+            Console.WriteLine($"\tc) {kevertValaszok[2].valaszSzovege}");
+            Console.WriteLine($"\td) {kevertValaszok[3].valaszSzovege}");
                                    
-            Console.Write("Írd a helyes válasz betűjelét!");
+            Console.WriteLine("Írd a helyes válasz betűjelét!");
+            //while (Console.ReadKey().Key != ConsoleKey.A && Console.ReadKey().Key != ConsoleKey.B && Console.ReadKey().Key != ConsoleKey.C && Console.ReadKey().Key != ConsoleKey.D && Console.ReadKey().Key != ConsoleKey.Enter)
+            //{
+            //    Console.Write("\b \b"); //amíg nem enter üt le a felhasználó, addig backslash space backslash-sel visszatörlődik a beírt karakter
+            //}
             char valasz = char.Parse(Console.ReadLine());
 
-           
+            
+
+            char[] valaszBetujel = { 'a', 'b', 'c', 'd' };
+            int valaszindex = Array.IndexOf(valaszBetujel, valasz);
+
+            //Console.WriteLine($"{valaszindex}");
+            //Console.WriteLine($"{kevertValaszok[valaszindex].helyesValasz}");
+
+            if (valaszindex == -1) //Because most arrays have a lower bound of zero, this method generally returns - 1 ifvalue isn't found. 
+            {
+                Console.WriteLine("\b \b");
+            }
+            
+            else if (kevertValaszok[valaszindex].helyesValasz == true)
+            {
+                Console.WriteLine("Helyes válasz!");
+            }
+            else Console.WriteLine("Helytelen válasz!");
+            
 
         }
 
-        private static string[] TombKever(string[] valaszok)
+        private static Valasz[] TombKever(Valasz[] valaszok)
         {
             for (int i = 0; i < valaszok.Length; i++)
             {
                 int x = rnd.Next(valaszok.Length);
                 int y = rnd.Next(valaszok.Length);
 
-                string cs = valaszok[x];//letárolom egy csereváltozóban
+                Valasz cs = valaszok[x];//letárolom egy csereváltozóban
                 valaszok[x] = valaszok[y];
                 valaszok[y] = cs;
 
