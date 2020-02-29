@@ -18,6 +18,7 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
     }
     class Program
     {
+        static Random rnd = new Random();
         static List<Kerdes> teszt;
         static void Main(string[] args)
         {
@@ -47,25 +48,36 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
         private static void FeladatMegjelenitese(int i)
         {
-            var dic = new Dictionary<char, string>(); // char, struct
-
-            dic.Add('a', teszt[i].helyesValasz); // dic.a = teszt[i].helyesValasz; dic['a'] = teszt[i].helyesValasz;
-            dic.Add('b', teszt[i].rosszValasz1); // dic.b = { helyes: false, szoveg: teszt[i].helyesValasz  }
-            dic.Add('c', teszt[i].rosszValasz2);
-            dic.Add('d', teszt[i].rosszValasz3);
+            string[] valaszok = {teszt[i].helyesValasz, teszt[i].rosszValasz1, teszt[i].rosszValasz2, teszt[i].rosszValasz3 };
+            string[] kevertValaszok = TombKever(valaszok);
 
             Console.WriteLine($"{(i)}. kérdés: {teszt[i].kategoria} kategóriában\n");
             Console.WriteLine($"{teszt[i].kerdes}");
-            Console.WriteLine($"\ta) {teszt[i].helyesValasz}");
-            Console.WriteLine($"\tb) {teszt[i].rosszValasz1}");
-            Console.WriteLine($"\tc) {teszt[i].rosszValasz2}");
-            Console.WriteLine($"\td) {teszt[i].rosszValasz3}");
+            Console.WriteLine($"\ta) {kevertValaszok[0]}");
+            Console.WriteLine($"\tb) {kevertValaszok[1]}");
+            Console.WriteLine($"\tc) {kevertValaszok[2]}");
+            Console.WriteLine($"\td) {kevertValaszok[3]}");
                                    
             Console.Write("Írd a helyes válasz betűjelét!");
             char valasz = char.Parse(Console.ReadLine());
 
-            Console.WriteLine($"A válasz: {dic[valasz]}"); // dic[valasz].szoveg !dic[valasz].helyes 
+           
 
+        }
+
+        private static string[] TombKever(string[] valaszok)
+        {
+            for (int i = 0; i < valaszok.Length; i++)
+            {
+                int x = rnd.Next(valaszok.Length);
+                int y = rnd.Next(valaszok.Length);
+
+                string cs = valaszok[x];//letárolom egy csereváltozóban
+                valaszok[x] = valaszok[y];
+                valaszok[y] = cs;
+
+            }
+            return valaszok;
         }
 
         private static void Beolvas()
