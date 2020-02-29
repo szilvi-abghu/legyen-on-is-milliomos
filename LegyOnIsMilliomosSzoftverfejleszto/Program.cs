@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LegyOnIsMilliomosSzoftverfejleszto
@@ -31,7 +32,7 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             Beolvas();
             Kiiras();
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         private static void Kiiras()
@@ -40,14 +41,16 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             for (int i = 1; i < teszt.Count; i++)
             {
                 FeladatMegjelenitese(i);
+               
                 
 
-                Console.WriteLine("Folytatáshoz nyomjon ENTER-t...");
-                while (Console.ReadKey().Key != ConsoleKey.Enter)
-                {
-                    Console.Write("\b \b"); //amíg nem enter üt le a felhasználó, addig backslash space backslash-sel visszatörlődik a beírt karakter
-                }
-                Console.Clear();
+
+                //Console.WriteLine("Folytatáshoz nyomjon ENTER-t...");
+                //while (Console.ReadKey().Key != ConsoleKey.Enter)
+                //{
+                //    Console.Write("\b \b"); //amíg nem enter üt le a felhasználó, addig backslash space backslash-sel visszatörlődik a beírt karakter
+                //}
+
             }
             
         }
@@ -80,10 +83,10 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
             Console.WriteLine($"{(i)}. kérdés: {teszt[i].kategoria} kategóriában\n");
             Console.WriteLine($"{teszt[i].kerdes}");
-            Console.WriteLine($"\ta) {kevertValaszok[0].valaszSzovege}");
-            Console.WriteLine($"\tb) {kevertValaszok[1].valaszSzovege}");
-            Console.WriteLine($"\tc) {kevertValaszok[2].valaszSzovege}");
-            Console.WriteLine($"\td) {kevertValaszok[3].valaszSzovege}");
+            Console.WriteLine(  $"\ta) {kevertValaszok[0].valaszSzovege}\n" +
+                                $"\tb) {kevertValaszok[1].valaszSzovege}\n" +
+                                $"\tc) {kevertValaszok[2].valaszSzovege}\n" +
+                                $"\td) {kevertValaszok[3].valaszSzovege}\n");
                                    
             Console.WriteLine("Írd a helyes válasz betűjelét!");
             //while (Console.ReadKey().Key != ConsoleKey.A && Console.ReadKey().Key != ConsoleKey.B && Console.ReadKey().Key != ConsoleKey.C && Console.ReadKey().Key != ConsoleKey.D && Console.ReadKey().Key != ConsoleKey.Enter)
@@ -104,13 +107,26 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             {
                 Console.WriteLine("\b \b");
             }
-            
+
             else if (kevertValaszok[valaszindex].helyesValasz == true)
             {
                 Console.WriteLine("Helyes válasz!");
+                Thread.Sleep(3000);
+                Console.Clear();
             }
-            else Console.WriteLine("Helytelen válasz!");
-            
+            else
+            {
+                Console.WriteLine("Helytelen válasz!\n");
+                Thread.Sleep(3000);
+                Console.Clear();
+                Console.WriteLine("Köszönöm a játékot, ma csak tapasztalatot nyertél!");
+            }
+
+            //while (Console.ReadKey().Key != ConsoleKey.Escape)
+                //Console.Write("\b \b");
+
+
+
 
         }
 
