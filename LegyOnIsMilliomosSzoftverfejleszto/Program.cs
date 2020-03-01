@@ -28,23 +28,19 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
         static Random rnd = new Random();
         static List<Kerdes> teszt; //2.lépés
         static int[] nyeremény = { 0, 100, 1000, 2000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000 };
-        static int kerdesekSzama = 3;
+        static int kerdesekSzama = 10;
         static bool ok = true;
 
         static void Main(string[] args)
         {
             Beolvas(); // 3. lépés
-           
-            Kiiras(); //4. lépés
-
-            //Console.ReadKey();
+            Kiiras(); //4. lépés           
         }
 
-        
+
         private static void Kiiras()
         {
-            
-            for (int i = 1; i < (kerdesekSzama+1); i++) // 5.lépés: i=1-től indítva, mert a 0 a táblázat fejléce
+            for (int i = 1; i < (kerdesekSzama + 1); i++) // 5.lépés: i=1-től indítva, mert a 0 a táblázat fejléce
             {
                 if (ok) // ha ok=true, azaz mindaddig, amíg nem rontja el a feladatot
                 {
@@ -52,45 +48,31 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
                 }
 
                 else // ha ok=false, azaz amikor elrontja a feladatot(hiszen ebben az esetben átváltjuk ok értékét false-ra)
-                { 
+                {
                     break;
                 }
-
-
-
             }
 
             if (ok)
             {
-                Kiertekeles();
+                Console.WriteLine("Gratulálok, minden kérdésre tudtad a választ!\n" +
+                              "Nyereményed még egyszer: {0, 0:N0} Ft\n" +
+                              "Ha van kedved, játsz újra!\n", nyeremény[kerdesekSzama]);            
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine(  "Köszönöm a játékot, ma csak tapasztalatot nyertél!\n" +
-                                    "Kilépéshez nyomd le az Esc billenytűt!");
-                while (Console.ReadKey().Key != ConsoleKey.Escape)
-                    Console.Write("\b \b");
-
+                Console.WriteLine("Köszönöm a játékot, ma csak tapasztalatot nyertél!\n");                                  
             }
-            
 
-        }
-
-        private static void Kiertekeles()
-        {
-            
-            Console.WriteLine("Gratulálok, minden kérdésre tudtad a választ!\n" +
-                              "Nyereményed még egyszer: {0, 0:N0} Ft\n" +
-                              "Ha van kedved, játsz újra!\n" +
-                              "Kilépéshez nyomd le az Esc billenytűt!", nyeremény[kerdesekSzama]);
+            Console.WriteLine("Kilépéshez nyomd le az Esc billenytűt!");
             while (Console.ReadKey().Key != ConsoleKey.Escape)
-                    Console.Write("\b \b");
+                Console.Write("\b \b");
         }
 
+       
         private static void FeladatMegjelenitese(int i)
         {
-            //List<Kerdes> kevertTeszt = ListaKever(teszt);
             int randomindex = rnd.Next(1, teszt.Count);
             Valasz[] valaszok = new Valasz[4];
             valaszok[0] = new Valasz()
@@ -116,8 +98,6 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
             Valasz[] kevertValaszok = TombKever(valaszok);
 
-            
-
             Console.WriteLine($"10/{i}. kérdés: {teszt[randomindex].kategoria} kategóriában\n"); //kategória és kérdés és lehetséges válaszok kiírása
             Console.WriteLine($"{teszt[randomindex].kerdes}");
             Console.WriteLine(  $"\ta) {kevertValaszok[0].valaszSzovege}\n" +
@@ -127,58 +107,47 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             teszt.RemoveAt(randomindex);
                                    
             Console.WriteLine("Írd a helyes válasz betűjelét, és nyomj egy enter-t!");
-            //while (Console.ReadKey().Key != ConsoleKey.A && Console.ReadKey().Key != ConsoleKey.B && Console.ReadKey().Key != ConsoleKey.C && Console.ReadKey().Key != ConsoleKey.D && Console.ReadKey().Key != ConsoleKey.Enter)
-            //{
-            //    Console.Write("\b \b"); //amíg nem enter üt le a felhasználó, addig backslash space backslash-sel visszatörlődik a beírt karakter
-            //}
 
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
             
-            char valasz = char.Parse(Console.ReadLine());
-                      
+            char valasz = char.Parse(Console.ReadLine()); // csak egy enter nyomásra, itt ad Exception unhandled-t.
+
+            Console.ResetColor();
             char[] valaszBetujel = { 'a', 'b', 'c', 'd' };
 
-            int valaszindex = Array.IndexOf(valaszBetujel, valasz);
+            int valaszindex = Array.IndexOf(valaszBetujel, valasz); // a lesz a 0-as indexű, b lesz az 1-es indexű, c lesz a 2-es indexű és d lesz a 3-as indexű
 
-            //Console.WriteLine($"{valaszindex}");
-            //Console.WriteLine($"{kevertValaszok[valaszindex].helyesValasz}");
 
-            if (valaszindex == -1) //Because most arrays have a lower bound of zero, this method generally returns - 1 ifvalue isn't found. 
+            if (valaszindex == -1) //Because most arrays have a lower bound of zero, this method generally returns - 1 if value isn't found. De mi a helyzet, ha csak egy enter-t nyom a felhasználó? Exception unhandled-be fut.
             {
-                Console.WriteLine("\b \b");
+                ok = false;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Ilyen válaszlehetőség nincs!");
+                Thread.Sleep(3000);
+                Console.ResetColor();
             }
 
             else if (kevertValaszok[valaszindex].helyesValasz == true)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("Helyes válasz!");
                 Console.WriteLine("Nyereményed: {0, 0:N0} Ft", nyeremény[i]);
-                Thread.Sleep(1000);
-                Console.Clear();
-                
+                Thread.Sleep(3000);
+                Console.ResetColor();
+                Console.Clear();                
             }
+
             else
             {
                 ok = false;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Helytelen válasz!\n");
                 Thread.Sleep(3000);
+                Console.ResetColor();
             }
-                       
         }
 
-
-        private static List<Kerdes> ListaKever(List<Kerdes> teszt)
-        {
-            for (int i = 0; i < teszt.Count; i++)
-            {
-                int x = rnd.Next(teszt.Count);
-                int y = rnd.Next(teszt.Count);
-
-                Kerdes cs = teszt[x];//letárolom egy csereváltozóban
-                teszt[x] = teszt[y];
-                teszt[y] = cs;
-
-            }
-            return teszt;
-        }
         private static Valasz[] TombKever(Valasz[] valaszok)
         {
             for (int i = 0; i < valaszok.Length; i++)
@@ -189,7 +158,6 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
                 Valasz cs = valaszok[x];//letárolom egy csereváltozóban
                 valaszok[x] = valaszok[y];
                 valaszok[y] = cs;
-
             }
             return valaszok;
         }
@@ -212,11 +180,9 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
                     rosszValasz1 = sor[3],
                     rosszValasz2 = sor[4],
                     rosszValasz3 = sor[5],
-
                 };
 
                 teszt.Add(k);
-
             };
 
             sr.Close();
