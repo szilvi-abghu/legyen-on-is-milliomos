@@ -27,9 +27,11 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
     {
         static Random rnd = new Random();
         static List<Kerdes> teszt; //2.lépés
-        static int[] nyeremény = { 0, 100, 1000, 2000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000 };
+        static int[] nyeremeny = { 0, 100, 1000, 2000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000 };
         static int kerdesekSzama = 10;
         static bool ok = true;
+        static int hk = Console.WindowHeight / 2;
+        static int vk = Console.WindowWidth / 2;
 
         static void Main(string[] args)
         {
@@ -55,17 +57,25 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
             if (ok)
             {
-                Console.WriteLine("Gratulálok, minden kérdésre tudtad a választ!\n" +
-                              "Nyereményed még egyszer: {0, 0:N0} Ft\n" +
-                              "Ha van kedved, játsz újra!\n", nyeremény[kerdesekSzama]);            
+                Console.SetCursorPosition(vk - 25, hk - 1);
+                Console.WriteLine("Gratulálok, minden kérdésre tudtad a választ!");
+                Console.SetCursorPosition(vk - 21, hk);
+                Console.WriteLine("Nyereményed még egyszer: {0, 0:N0} Ft", nyeremeny[kerdesekSzama]);
+                Console.SetCursorPosition(vk - 15, hk+1);
+                Console.WriteLine("Ha van kedved, játsz újra!");            
             }
             else
             {
+                
                 Console.Clear();
-                Console.WriteLine("Köszönöm a játékot, ma csak tapasztalatot nyertél!\n");                                  
+                Console.SetCursorPosition(vk - 15, hk - 1);
+                Console.WriteLine("Köszönöm a játékot!");
+                Console.WriteLine("\n");
+                Console.SetCursorPosition(vk - 27, hk);
+                Console.WriteLine("Ma nem nyertél, de ha van kedved, játsz újra!");                                  
             }
-
-            Console.WriteLine("Kilépéshez nyomd le az Esc billenytűt!");
+            Console.SetCursorPosition(0, hk*2);
+            Console.WriteLine("\nKilépéshez nyomd le az Esc billenytűt!");
             while (Console.ReadKey().Key != ConsoleKey.Escape)
                 Console.Write("\b \b");
         }
@@ -73,6 +83,7 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
        
         private static void FeladatMegjelenitese(int i)
         {
+            
             int randomindex = rnd.Next(1, teszt.Count);
             Valasz[] valaszok = new Valasz[4];
             valaszok[0] = new Valasz()
@@ -98,16 +109,26 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
 
             Valasz[] kevertValaszok = TombKever(valaszok);
 
-            Console.WriteLine($"10/{i}. kérdés: {teszt[randomindex].kategoria} kategóriában\n"); //kategória és kérdés és lehetséges válaszok kiírása
-            Console.WriteLine($"{teszt[randomindex].kerdes}");
+            
+            Console.Write($"\n10/{i}. kérdés: {teszt[randomindex].kategoria} kategóriában"); //kategória és kérdés és lehetséges válaszok kiírása
+            Console.SetCursorPosition(80, 1);
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Eddigi nyereményed: {0, 0:N0} Ft", nyeremeny[i - 1]);
+            Console.ResetColor();
+            Console.WriteLine("\n");
+            Console.WriteLine($"{teszt[randomindex].kerdes}\n");
             Console.WriteLine(  $"\ta) {kevertValaszok[0].valaszSzovege}\n" +
                                 $"\tb) {kevertValaszok[1].valaszSzovege}\n" +
                                 $"\tc) {kevertValaszok[2].valaszSzovege}\n" +
                                 $"\td) {kevertValaszok[3].valaszSzovege}\n");
             teszt.RemoveAt(randomindex);
                                    
-            Console.WriteLine("Írd a helyes válasz betűjelét, és nyomj egy enter-t!");
+            Console.WriteLine("\nÍrd a helyes válasz betűjelét, és nyomj egy enter-t!");
 
+            BeiroBox(5, 7);
+
+            Console.SetCursorPosition(vk, hk);
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             
@@ -122,8 +143,9 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             if (valaszindex == -1) //Because most arrays have a lower bound of zero, this method generally returns - 1 if value isn't found. De mi a helyzet, ha csak egy enter-t nyom a felhasználó? Exception unhandled-be fut.
             {
                 ok = false;
+               
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Ilyen válaszlehetőség nincs!");
+                Console.WriteLine("\n\n\n\nSAJNÁLOM, ILYEN VÁLASZLEHETŐSÉG NINCS!");
                 Thread.Sleep(3000);
                 Console.ResetColor();
             }
@@ -131,8 +153,9 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             else if (kevertValaszok[valaszindex].helyesValasz == true)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("Helyes válasz!");
-                Console.WriteLine("Nyereményed: {0, 0:N0} Ft", nyeremény[i]);
+               
+                Console.WriteLine("\n\n\n\nHELYES VÁLASZ!");
+                Console.WriteLine("Nyereményed: {0, 0:N0} Ft", nyeremeny[i]);
                 Thread.Sleep(3000);
                 Console.ResetColor();
                 Console.Clear();                
@@ -142,9 +165,29 @@ namespace LegyOnIsMilliomosSzoftverfejleszto
             {
                 ok = false;
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Helytelen válasz!\n");
+                Console.WriteLine("\n\n\n\nHELYTELEN VÁLASZ!\n");
                 Thread.Sleep(3000);
                 Console.ResetColor();
+            }
+        }
+
+        private static void BeiroBox(int m, int sz)
+        {
+                     
+            for (int i = 0; i < sz; i++)
+            {
+                Console.SetCursorPosition((vk - (sz / 2)) + i, hk - (m / 2));
+                Console.Write("$");
+                Console.SetCursorPosition(vk - (sz / 2) + i, hk + (m / 2));
+                Console.Write("$");
+            }
+ 
+            for (int i = 0; i < m; i++)
+            {
+                Console.SetCursorPosition(vk - (sz / 2), hk - (m / 2) + i);
+                Console.Write("$");
+                Console.SetCursorPosition(vk + (sz / 2), hk - (m / 2) + i);
+                Console.Write("$");
             }
         }
 
