@@ -1,17 +1,51 @@
 tipus;kerdes;helyes_valasz;rossz_valasz1;rossz_valasz2;rossz_valasz3
-szamrendszerek;Melyek a számítástechnikában leggyakrabban használatos számrendszerek?;bináris, decimális, hexadecimális, oktális;dinnye;alma;körte
-szamrendszerek;Hogy mondjuk a 16-os számrendszert más néven?;hexadecimális;dinnye;alma;körte
-szamrendszerek;Melyik számrendszert nevezzük binárisnak?;2-es számrendszer;dinnye;alma;körte
-szamrendszerek;Mennyi a 52 decimális szám 2-es számrendszerbeli alakja?;1 1 0 1 0 0(2);dinnye;alma;körte
-szamrendszerek;Mennyi a 42 decimális szám hexadecimális számrendszerbeli alakja?;2A(16);dinnye;alma;körte
-logikai;Mikor igaz az A ^ B 'és' logikai művelet?;akkor igaz, ha A és B is igaz;dinnye;alma;körte
-logikai;Mikor igaz az A v B 'vagy' logikai művelet?;akkor igaz, ha A vagy B vagy A és B igaz;dinnye;alma;körte
-logikai;Mikor igaz az ¬A  'tagadás' logikai művelet?;akkor igaz, amikor az A állítás nem igaz, és akkor nem igaz, amikor az A állítás igaz;dinnye;alma;körte
-logikai;Mikor igaz az A x B  'kizáró vagy' logikai művelet?;akkor igaz, ha vagy csak az A vagy csak a B igaz. Nem engedi meg, hogy a két állítás logikai értéke egyszerre igaz legyen;dinnye;alma;körte
-logikai;Melyik az a logikai művelet, ami akkor igaz, ha A és B is hamis?;tagadó vagy' logikai művelet  ;dinnye;alma;körte
-halozatok;Mi a hálózati topológia?;A számítógépek fizikai összekötésének rendszere;dinnye;alma;körte
-halozatok;Mi az IP cím?;internet protokol cím, 32 jegyű kettes számrendszerbeli azonosító szám;dinnye;alma;körte
-halozatok;Mi a host?;IP címmel rendelkező hálózati eszköz;dinnye;alma;körte
-halozatok;Mi a CIDR?;azonos méretű alhálózatokra bontás;dinnye;alma;körte
-halozatok;Hogy nevezzük a hálózati címtartomány első IP címét?;net cím;dinnye;alma;körte
-halozatok;Mi a broadcast cím más néven?;szórási cím;dinnye;alma;körte
+szamrendszerek;Melyek a számítástechnikában leggyakrabban használatos számrendszerek?;bináris, decimális, hexadecimális, oktális;duodecimális, oktális;bináris, duodecimális, decimális;quadrális, decimális, bináris, hexadecimális
+szamrendszerek;Hogy mondjuk a 16-os számrendszert más néven?;hexadecimális;decimális;duodecimális;bináris
+szamrendszerek;Melyik számrendszert nevezzük binárisnak?;2-es számrendszer;4-es számrendszer;16-os számrendszer;10-es számrendszer
+szamrendszerek;Mennyi a 52 decimális szám 2-es számrendszerbeli alakja?;1 1 0 1 0 0(2);1 1 0 0 1 0(2);1 1 0 1 0 1(2);1 1 0 1 1 0(2)
+szamrendszerek;Mennyi a 42 decimális szám hexadecimális számrendszerbeli alakja?;2A(16);2B(16);4A(16);4B(16)
+logikai;Mikor igaz az A ^ B 'ÉS' logikai művelet?;ha A és B is igaz;ha csak A igaz;ha A és B is hamis;ha csak A vagy csak B igaz
+logikai;Melyik művelet a 'VAGY' logikai művelet ellentéte?;TAGADÓ VAGY' logikai művelet;KIZÁRÓ VAGY' logikai művelet;TAGADÁS' logikai művelet;ÉS' logikai művelet
+logikai;Melyik művelet a következő: akkor igaz, amikor az A állítás nem igaz, és akkor nem igaz, amikor az A állítás igaz?;TAGADÁS' logikai művelet;TAGADÓ ÉS' logikai művelet;TAGADÓ VAGY' logikai művelet;AZONOSSÁG' logikai művelet
+logikai;Mikor igaz az A x B  'TAGADÓ VAGY' logikai művelet?;ha A és B is hamis;ha A és B is igaz;ha csak A igaz;ha csak B igaz
+logikai;Melyik az a logikai művelet, ami akkor igaz, ha A és B is hamis?;TAGADÓ VAGY' logikai művelet  ;KIZÁRÓ VAGY' logikai művelet  ;ÉS' logikai művelet  ;TAGADÁS' logikai művelet  
+halozatok_1;Mi a hálózati topológia?;A számítógépek fizikai összekötésének rendszere;A routerek fizikai összekötésének rendszere;A szerverek fizikai összekötésének rendszere;Az ethernet kábel bekötési sorrendje
+halozatok_1;Mi az IP cím?;Internet Protokol;Media Access Control;olasz postacím;a MÁV InterPici vonatainak jelzése
+halozatok_1;Mi a host?;IP címmel rendelkező hálózati eszköz;vendéglátó;IP címmel nem rendelkező hálózati eszköz;A modem másik neve
+halozatok_1;Mire jó a CIDR módszer?;A hálózatot azonos méretű alhálózatokra bontja.;dinnye;alma;körte
+halozatok_1;Hogy nevezzük a hálózati címtartomány első IP címét?;net cím;broadcast cím;APIPA;first address
+halozatok_2;Mi a broadcast cím más néven?;szórási cím;hálózati cím;különleges cím;MAC cím
+halozatok_2;Mi a router?;Forgalomirányító. A különböző hálózatok közötti forgalmat irányító eszköz.;átjáró;kapcsoló;jelismétlő
+halozatok_2;Mire jó a trunk port?;Két eszköz (switch) között minden VLAn-t átenged.;csak  a VLAN 1-et engedi át;semmilyen VLAN-t nem emged át;semmire
+halozatok_2;Milyen típusú routingolások ismertek?;Statikus és dinamikus;rövid és hosszú;kicsi és nagy;privát és publikus
+halozatok_2;Milyen IP cím tartomány és maszk jellemző a C osztályos IP címekre?;IP cím tartomány: 192...223-ig, maszk: /24;IP cím tartomány: 0...127-ig, maszk: /8;IP cím tartomány: 128...191-ig, maszk: /16;IP cím tartomány: 224...239-ig, maszk: /24
+halozatok_3;Melyik címet kapjuk az APIPA-n keresztül?;169.154.45.130;192.168.1.1;10.11.12.1;127.0.0.0
+halozatok_3;Mi az APIPA?;Automatic Private IP Addressing;localhost;hálózati maszk;DHCP szerver
+halozatok_3;Mire jó a VLSM módszer?;A hálózatot különböző méretű alhálózatokra bontja.;A hálózatot azonos méretű alhálózatokra bontja.;A 2 távoli hálózatot egyesít. ;A hálózatot megvédi.
+halozatok_3;Minek a rövidítése a vtp?;VLAN trunking protokol;virtuális helyi hálózat;switch konzolos jelszava;statikus routing
+halozatok_3;Milyen IP cím az alábbi?: 10.11.12.0/24;osztály nélküli;A osztályos;B osztályos;C osztályos
+IT alapismeretek_1;Mi a ROM?;Csak olvasható memória;Csak írható memória;operációs rendszer;rendszermag
+IT alapismeretek_1;Mi a RAM?;Random Access Memory ;merevlemez;infravörös adatátvitel;4. generációs vezeték nélküli szolgáltatás
+IT alapismeretek_1;Mely felsorolás tartalmaz csak input perifériákat?;billentyűzet, scanner, mikrofon;monitor, mikrofon, hangszóró;pendrive, headset, érintőképernyő;fülhallgató, egér, külső háttértároló
+IT alapismeretek_1;Mi az IrDA?;infravörös adatátvitel;rövid hatótávolságú adatcseréhez használt, nyílt vezeték nélküli szabvány;2. generációs vezeték nélküli szolgáltatás;wireless fidelity
+IT alapismeretek_1;Mi a bluetooth?;rövid hatótávolságú adatcseréhez használt, nyílt vezeték nélküli szabvány;infravörös adatátvitel;wireless fidelity;3. generációs vezeték nélküli szolgáltatás
+IT alapismeretek_2;Melyik kábel részei a következők? Külső műanyag burkolat - feszítő rézszál - szivacsos szigetelés - fényvisszaverő réteg - belső üvegmag;optikai kábel;koax kábel;UTP kábel;ethernet kábel
+IT alapismeretek_2;Milyen típusú háttértárak ismertek?;papíralapú - mágneses - optikai - elektronikus;vezetékes - vezeték nélküli;2G - 3G - 4G;koaxiális - optika - utp
+IT alapismeretek_2;Ethernet kábel színsorrendje egyenes kötésű kábel készítésénél:;Narancs-fehér | Narancs | Zöld-fehér | Kék | Kék-fehér | Zöld | Barna-fehér | Barna ;Narancs-fehér | Narancs | Zöld-fehér | Kék | Kék-fehér | Zöld | Fekete-fehér | Fekete ;Narancs-fehér | Narancs | Zöld-fehér | Lila | Lila-fehér | Zöld | Barna-fehér | Barna ;Piros-fehér | Piros | Zöld-fehér | Kék | Kék-fehér | Zöld | Barna-fehér | Barna 
+IT alapismeretek_2;Ethernet kábel színsorrendje kereszt kötésű kábel készítésénél:;Zöld-fehér | Zöld | Narancs-fehér | Kék | Kék-fehér | Narancs | Barna-fehér | Barna ;Zöld-fehér | Zöld | Narancs-fehér | Kék | Kék-fehér | Narancs | Fekete-fehér | Fekete ;Sárga-fehér | Sárga | Narancs-fehér | Kék | Kék-fehér | Narancs | Barna-fehér | Barna ;Zöld-fehér | Zöld | Narancs-fehér | Lila | Lila-fehér | Narancs | Barna-fehér | Barna 
+IT alapismeretek_2;Mikor használunk egyenes kábelt?;Egy aktív és egy passzív hálózatzi eszköz között (pl. számítógép és router);soha;mindig;Két aktív vagy két passzív hálózati eszköz között (pl két switch vagy két számítógép között).
+IT alapismeretek_3;Mikor használunk kereszt kábelt?;Két aktív vagy két passzív hálózati eszköz között (pl két switch vagy két számítógép között).;Egy aktív és egy passzív hálózatzi eszköz között (pl. számítógép és router);soha;mindig
+IT alapismeretek_3;Mi a BIOS?;alapvető bemeneti–kimeneti rendszer;vezeték nélküli szolgáltatások;biológiai osztályozási rendszer;grafikus kártyák csatlakozója
+IT alapismeretek_3;Mi az alaplap és mi a funkciója?;Intergrált áramkörök összessége, amely összekapcsolja a hardware komponenseket és táőfeszültséggel látja el azokat.;nyomdai alapértelmezett papírméret;átfogó alapprogram;digitalizáló tábla
+IT alapismeretek_3;Melyik processzor foglalat a leggyakoribb manapság?;socket;slot;AUX;CMOS
+IT alapismeretek_3;Mely eszközök igényelnek 5 V szünetmentes feszültséget?;Wake up eszközök (pl. USB-s billentyűzet, egér);villanykörte;bővítőkártya;HDD
+adatbázis;Mi a DDL?;Adatdefiníciós nyelv;Adatmanipulációs nyelv;merevlemez;projekció művelete
+adatbázis;Mi a szelekció, és mi a funkciója?;vertikális szűkítés;horizontális szűkítés;kiválogatás;új adatsor felvétele
+adatbázis;Mi a projekció, és mi a funkciója?;horizontális szűkítés;vertikális szűkítés;kiválogatás;az adattáblák projektekbe rendezése
+adatbázis;Mi a De Morgan azonosság?;Logikai kifejezések közötti ekvivalencia;1:1 kapcsolat;elsődleges és külső kulcs azonossága;ismétlődések megszüntetése a multihalmazoknál
+adatbázis;Melyek az adatbázisok adattípusai?;számtípus - karakterlánc - logikai - null érték - dátumformátum;min - max -avg -count;struktúra - tömb - lista;Descatres szorzat - unio - különbség - szelekció - projekció
+C#;Melyik a számláló ciklus?;for ciklus;while ciklus;do while ciklus;feltételes ciklus
+C#;Melyik feltételes ciklusra jellemző, hogy a ciklus a vezérlő feltétel kiértékelésével kezdődik?;while ciklus;for ciklus;számláló ciklus;do while ciklus
+C#;Melyik feltételes ciklusra jellemző, hogy a ciklusmag egyszer biztosan lefut?;do while ciklus;while ciklus;for ciklus;számláló ciklus
+C#;Mi a tömb?;több, azonos típusú elem tárolására alkalmas összetett adatszerkezet ;több, különböző típusú, de logikailag összetartozó elem tárolására alkalmas összetett adatszerkezet ;egy elem tárolására alkalmas összetett adatszerkezet;üres string
+C#;Mi a struktúra?;több, különböző típusú, de logikailag összetartozó elem tárolására alkalmas összetett adatszerkezet ;több, azonos típusú elem tárolására alkalmas összetett adatszerkezet ;egy elem tárolására alkalmas összetett adatszerkezet;másnéven lista
